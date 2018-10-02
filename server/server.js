@@ -7,8 +7,7 @@ const mongoose = require("mongoose")
 const notesRoutes = require("./routes/notes")
 const authRoutes = require("./routes/auth")
 const profileRoutes = require("./routes/profile")
-
-app.use("express-json")
+app.use(express.json())
 app.use(morgan("dev"))
 
 // Connect to the Database

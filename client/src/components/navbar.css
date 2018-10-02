@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Lato-Regular;
+   }
+   .topBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    border-bottom: 2px solid #072e08;
+    border-top: 4px solid #F1FF6D;
+    height: 50px;
+   }
+   .appName {
+    padding: 5px 10px 5px 20px;
+    color: #573307;
+    font-size: 15px;
+   }
+   .tagline {
+    border-left: 2px solid #072e08;
+    padding: 5px 5px 5px 10px;
+    color: #573307;
+    font-size:15px;
+   }
+   .nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 7.5px;
+    border-bottom: 0.5px solid #072e08;
+   }
+   .navLinks {
+    text-decoration: none;
+    font-weight: 1000;
+    color: #573307;
+    padding: 0px;
+    border-top: 5px solid white;
+    border-bottom: 5px solid white;
+   }
+   .navLinks:hover {
+    color: #7AA321;
+    border-top: 5px solid #7AA321;
+      font-size: 25px;
+      -webkit-transition: all 1s ease;
+   }
+   .imgLogo{
+    width:25px;
+    height:45px;
+    margin-left: 15px;
+    -webkit-transition: all 10s ease-in-out;
+    -moz-transition: all 10s ease-in-out;
+    -o-transition: all 10s ease-in-out;
+    -ms-transition: all 10s ease-in-out;
+   }
+   .imgLogo:hover{
+    -webkit-transform: rotate(3600deg);
+    -moz-transform: rotate(3600deg);
+    -o-transform: rotate(3600deg);
+    -ms-transform: rotate(3600deg);
+   }
+   .appName:hover{
+     font-size: 25px;
+    -webkit-transition: all 1s ease;
+   }
