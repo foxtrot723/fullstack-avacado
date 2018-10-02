@@ -1,0 +1,203 @@
+.contactHeader {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 25%;
+ }
+ 
+ .contactHeading {
+    color: #573307;
+    font-size: 3rem;
+ }
+ .contactHeading:hover{
+    font-size:5rem;
+    -webkit-transition: all 1s ease;
+ }
+ .map-wrapper{
+    position: relative;
+    height: 50px;
+ }
+ 
+ .formWrapper {
+    height: 600px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+ }
+ 
+ .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 85%;
+    padding: 2rem;
+    background-color:white;
+    font-size: 15px;
+ }
+ 
+ select {
+  height: 12rem;
+  background-color: transparent;
+  color: #573307;
+  font-size: 15px;
+  cursor: pointer;
+  border: 1px solid #7AA321;
+  margin: 1rem 0;
+  padding: 0;
+  font-size:15px;
+ }
+ 
+ input {
+    display: block;
+    border: none;
+    border-bottom: 1px solid #7AA321;
+    padding: 1rem;
+    width: 90%;
+    background-color: transparent;
+    color: #573307;
+    font-size: 14px;
+    outline: none;
+ }
+ 
+ ::placeholder {
+    color: #573307;
+    background-color: transparent;
+    font-size: 15px;
+ }
+ 
+ .msg {
+    height: 200px;
+    display: block;
+    border: none;
+    border: 1px solid #7AA321;
+    padding: 1rem;
+    width: 90%;
+    background-color: transparent;
+    color: #573307;
+    font-size: 12px;
+    outline: none;
+ }
+ 
+ .formBtn {
+    border: none;
+    margin: 2rem 0rem 0rem 0rem;
+    height: 20rem;
+    width: 7rem;
+    background-color: #7AA321;
+    color: #573307;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+ }
+ .formBtn:hover{
+    height:120%;
+    width:74vw;
+    font-size:120%;
+    -webkit-transition: all .5s ease;
+ }
+ 
+ 
+ .loading {
+    height: 525px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+ }
+ 
+ .roller {
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
+    transform: scale(2);
+  }
+  .roller div {
+    animation: roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 32px 32px;
+  }
+  .roller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: yellow;
+    margin: -3px 0 0 -3px;
+  }
+  .roller div:nth-child(1) {
+    animation-delay: -0.036s;
+  }
+  .roller div:nth-child(1):after {
+    top: 50px;
+    left: 50px;
+  }
+  .roller div:nth-child(2) {
+    animation-delay: -0.072s;
+  }
+  .roller div:nth-child(2):after {
+    top: 54px;
+    left: 45px;
+  }
+  .roller div:nth-child(3) {
+    animation-delay: -0.108s;
+  }
+  .roller div:nth-child(3):after {
+    top: 57px;
+    left: 39px;
+  }
+  .roller div:nth-child(4) {
+    animation-delay: -0.144s;
+  }
+  .roller div:nth-child(4):after {
+    top: 58px;
+    left: 32px;
+  }
+  .roller div:nth-child(5) {
+    animation-delay: -0.18s;
+  }
+  .roller div:nth-child(5):after {
+    top: 57px;
+    left: 25px;
+  }
+  .roller div:nth-child(6) {
+    animation-delay: -0.216s;
+  }
+  .roller div:nth-child(6):after {
+    top: 54px;
+    left: 19px;
+  }
+  .roller div:nth-child(7) {
+    animation-delay: -0.252s;
+  }
+  .roller div:nth-child(7):after {
+    top: 50px;
+    left: 14px;
+  }
+  .roller div:nth-child(8) {
+    animation-delay: -0.288s;
+  }
+  .roller div:nth-child(8):after {
+    top: 45px;
+    left: 10px;
+  }
+  @keyframes roller {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
