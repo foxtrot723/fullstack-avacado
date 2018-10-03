@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+
+body {
+    margin: 0px;
+}
+
+.homeContent {
+    height: 82vh;
+    width: auto;
+    color: #F1FF6D;
+    background-color: #573307;
+    display:flex;
+    flex-direction:column;
+}
+
+.homeContent h1 {
+    text-align: center;
+    font-size: 55px;
+    font-family: 'Indie Flower', cursive;
+}
+
+.homeContent h2, p {
+    padding-left: 100px;
+}
+
+.sign-up-button {
+    color: white;
+}
+
+.log-in-button {
+    color: white;
+}
+
+.homeContent p {
+    /* position: absolute;
+    left: 150px;
+    top: 230px; */
+}
+
+/* .login {
+    position: absolute;
+    top: 285px;
+} */
