@@ -3,7 +3,8 @@ import CurrentNote from './CurrentNote'
 import Notes from './Notes'
 import NoteForm from './NoteForm'
 import { connect } from 'react-redux'
-import { getNotes } from '../redux'
+// import { getNotes } from '../redux'
+import './notespage.css'
 
 class NotesPage extends React.Component {
     constructor() {
@@ -19,14 +20,12 @@ class NotesPage extends React.Component {
        this.props.getNotes()
     }
 
-
-
     // deleteNote = () => {
     //     axios.delete(`/notes/${id}`)
     //     .then(response => {
     //         this.setState(({
     //             allNotes: prevState.allNotes.filter(note => {
-
+        
     //             })
     //         }))
     //     })
@@ -42,18 +41,21 @@ class NotesPage extends React.Component {
     render() {
         return (
             <div className = "notes-page">
-                <input type = "button" value = "make a note" className = "new-note-button" onClick = { this.toggleNoteForm } />
+                <div className = "button-container">
+                    <input type = "button" value = "make a note" className = "new-note-button buttons" onClick = { this.toggleNoteForm } />
+                    <input type = "button" value = "delete a note" className = "delete-note-button buttons" onClick = { this.deleteNote } />
+                </div>
                 {
                     this.state.noteForm ?
                         <div></div>
                     :
-                        <NoteForm toggleNoteForm = { this.toggleNoteForm } />
+                        <div className = "flex-card-form-container">
+                            <div className = "new-note-form-bg" onClick = { this.toggleNoteForm }></div>
+                            <NoteForm toggleNoteForm = { this.toggleNoteForm } />
+                        </div>
                 }
-
-                <input type = "button" value = "delete a note" className = "delete-note-button" onClick = { this.deleteNote } />
                 <div className = "current-note">
                 </div>
-                <CurrentNote />
                 <div className = "notes-container">
                     {
                         this.state.allNotes.map(note => {
@@ -61,7 +63,7 @@ class NotesPage extends React.Component {
                                           title = { note.title }
                                           tag = { note.tag }
                                           body = { note.body }
-                                          date = { note.date }
+                                        //   date = { note.date }
                                           user = { note.user }/>
                         })
                     }
@@ -71,4 +73,6 @@ class NotesPage extends React.Component {
     }
 }
 
-export default connect(state => state, { getNotes })(NotesPage)
+export default connect(state => state, )(NotesPage)
+
+// { getNotes }

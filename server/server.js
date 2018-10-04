@@ -23,6 +23,15 @@ app.use("/api/notes", notesRoutes)
 // Added profile route to be able to re-verify a user when they refresh on a different page.
 app.use("/api/profile", profileRoutes)
 
+// app.use((err, req, res, next) => {
+//     console.log(err)
+//     if (err.name === "UnauthorizedError") {
+//         res.status(err.status)
+//     }
+//     return res.send({ message: err.message })
+// })
+
+
 app.listen(4200, () => {
     console.log("server is running on port 4200")
 })
