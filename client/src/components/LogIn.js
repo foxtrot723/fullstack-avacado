@@ -28,13 +28,13 @@ class Login extends Component {
                     ?
                     <div>
                         <LogInForm />
-                        <input type='button' className='Login' value="Don't have an account? Sign Up!" onClick={this.toggleSignUpForm}></input>
-                    </div>
+                        <input type='button' className='Login' value="Already have an account? Log in!" onClick={this.toggleSignUpForm}></input>
+                    </div> 
                     : 
                     <div>
                         <SignUpForm />
-                        <input type='button' className='Login' value="Already have an account? Log in!" onClick={this.toggleSignUpForm}></input>
-                    </div> 
+                        <input type='button' className='Login' value="Don't have an account? Sign Up!" onClick={this.toggleSignUpForm}></input>
+                    </div>
                 }
             </div>
         )

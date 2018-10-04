@@ -67,15 +67,20 @@ class LogInForm extends Component {
         super()
         this.state = {
             inputs: {
-                name: '',
+                username: '',
                 password: ''
             }
         }
     }
 
     handleChange = (event) => {
-        event.preventDefault()
-        this.setState({[event.target.name]: event.target.value})
+        const { name, value } = event.target
+        this.setState(prevState => ({
+            inputs: {
+                ...prevState.inputs,
+                [name]: value
+            }
+        }))
     }
 
     handleSubmit = (event) => {
@@ -84,19 +89,28 @@ class LogInForm extends Component {
         this.clearInputs()
     }
 
+    clearInputs = () => {
+        this.setState({
+            inputs: {
+                username: '',
+                password: ''
+            }
+        })
+    }
+
     render(){
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         Username:
-                        <input type='text' value={this.state.inputs.name} onChange={this.handleChange} />
+                        <input name = "username" type='text' value={this.state.username} onChange={this.handleChange} />
                     </label>
                     <label>
                         Password:
-                        <input type='text' value={this.state.inputs.password} onChange={this.handleChange} />
+                        <input name = "password" type='text' value={this.state.password} onChange={this.handleChange} />
                     </label>
-                    <input type='submit' value='Submit' />  
+                    <input type='submit' value='Submit' onClick = { this.handleSubmit } />  
                     <input type='button' value='Cancel' />
                 </form>
             </div>

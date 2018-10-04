@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { addNote } from '../redux/notes'
 
 class NoteForm extends Component {
     constructor() {
@@ -6,7 +8,7 @@ class NoteForm extends Component {
         this.state = {
             title: '',
             tag: '',
-            body: ''
+           body: ''
         }
     }
 
@@ -17,11 +19,12 @@ class NoteForm extends Component {
             tag: this.state.tag,
             body: this.state.body
         }
-        this.props.createNote(newNote)
+        this.props.addNote(newNote)
         this.setState({
             title: '',
             tag: '',
-            body: ''
+            body: '',
+            formVis: false
         })
     }
 
@@ -59,4 +62,4 @@ class NoteForm extends Component {
     }
 }
 
-export default NoteForm
+export default connect(state => state, { addNote })(NoteForm)

@@ -97,20 +97,47 @@ class SignUpForm extends Component {
     constructor() {
         super()
         this.state = {
-            name: '',
-            password: ''
+            inputs: {
+                username: '',
+                password: ''
+            }
         }
     }
 
     handleChange = (event) => {
-        event.preventDefault()
-        this.setState({[event.target.name]: event.target.value})
+        const { name, value } = event.target
+        this.setState(prevState => ({
+            inputs: {
+                ...prevState.inputs,
+                [name]: value
+            }
+        }))
     }
+
+    // Ramda, purely functional library
+    // functional programming does not mantain state
+    // a class is the combination of state and behavior
+    // perfect functions take in data and output data
+    // closure is a function inside of a function
+    // currying is a function that returns a function
+    // lowdash
+    // function signature describes how the object is oriented
+    // compose (end to front), pipe (front to end)
+    // unary (takes 1 parameter), binary (takes 2 parameter)
 
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.signUp(this.state.inputs)
         this.clearInputs()
+    }
+
+    clearInputs = () => {
+        this.setState({
+            inputs: {
+                username: '',
+                password: ''
+            }
+        })
     }
 
     render(){
@@ -119,19 +146,18 @@ class SignUpForm extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         Username:
-                        <input type='text' value={this.state.name} onChange={this.handleChange} />
+                        <input name = "username" type='text' value = {this.state.inputs.username} onChange = {this.handleChange} />
                     </label>
                     <label>
                         Password:
-                        <input type='text' value={this.state.password} onChange={this.handleChange} />
+                        <input name = "password" type='text' value = {this.state.inputs.password} onChange = {this.handleChange} />
                     </label>
-                    <input type='submit' value='Submit' />  
+                    <input type='submit' value='Submit' onClick = { this.handleSubmit } />  
                     <input type='button' value='Cancel' />
                 </form>
             </div>
         )
     }
-
 }
 
 export default connect(null, { signUp })(SignUpForm)

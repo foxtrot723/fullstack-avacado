@@ -3,7 +3,7 @@ import CurrentNote from './CurrentNote'
 import Notes from './Notes'
 import NoteForm from './NoteForm'
 import { connect } from 'react-redux'
-// import { getNotes } from '../redux'
+import { getNotes } from '../redux/notes'
 import './notespage.css'
 
 class NotesPage extends React.Component {
@@ -20,16 +20,9 @@ class NotesPage extends React.Component {
        this.props.getNotes()
     }
 
-    // deleteNote = () => {
-    //     axios.delete(`/notes/${id}`)
-    //     .then(response => {
-    //         this.setState(({
-    //             allNotes: prevState.allNotes.filter(note => {
-        
-    //             })
-    //         }))
-    //     })
-    // }
+    deleteNote = () => {
+        this.props.deleteNote(this.state.currentNote._id)
+    }
 
     toggleNoteForm = event => {
         event.preventDefault()
@@ -38,7 +31,14 @@ class NotesPage extends React.Component {
         }))
     }
 
+    handleClick = (id) => {
+        this.setState(prevState => ({
+            currentNote: prevState.allNotes.find(function (note) { return note._id === id })
+        }))
+    }
+
     render() {
+        console.log(this.props.notes)
         return (
             <div className = "notes-page">
                 <div className = "button-container">
@@ -55,16 +55,27 @@ class NotesPage extends React.Component {
                         </div>
                 }
                 <div className = "current-note">
+                {
+                    this.state.currentNote.length > 0 ?
+                    <div>
+                        <h1>{ this.state.currentNote.title }</h1>
+                        <p>{ this.state.currentNote.body }</p>
+                    </div>
+                    :
+                    <div></div>
+                }
                 </div>
                 <div className = "notes-container">
                     {
-                        this.state.allNotes.map(note => {
-                            return <Notes key = { note._id }
-                                          title = { note.title }
-                                          tag = { note.tag }
-                                          body = { note.body }
-                                        //   date = { note.date }
-                                          user = { note.user }/>
+                        this.props.notes.map(note => {
+                            return(
+                                <div className = "notes-containers" onClick = { () => this.handleClick(note._id)}>
+                                    <Notes key = { note._id }
+                                           id = { note._id }
+                                           body = { note.body }
+                                           title = { note.title }/>
+                                </div>
+                            )
                         })
                     }
                 </div>
@@ -73,6 +84,6 @@ class NotesPage extends React.Component {
     }
 }
 
-export default connect(state => state, )(NotesPage)
+export default connect(state => state, { getNotes })(NotesPage)
 
 // { getNotes }
