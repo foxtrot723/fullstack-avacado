@@ -1,7 +1,7 @@
 import axios from 'axios'
 const noteAxios = axios.create()
 
-const noteUrl = "/api/notes/"
+const noteUrl = "/api/notes"
 
 noteAxios.interceptors.request.use(config => {
     const token = localStorage.getItem("token")
@@ -33,6 +33,7 @@ export const addNote = newNote => {
         }).catch(err => {
             console.log(err)
         })
+        // console.log(newNote)
     }
 }
 

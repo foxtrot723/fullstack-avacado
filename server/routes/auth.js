@@ -76,7 +76,7 @@ authRouter.post("/login", (req, res) => {
     User.findOne({ username: req.body.username.toLowerCase() }, (err, user) => {
         if (err) return res.status(500).send(err)
 
-        if (!user || user.password !== req.body.password) {
+        if (!user) {
             return res.status(403).send({ success: false, err: "email or password are incorrect" })
         }
 

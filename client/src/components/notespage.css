@@ -116,3 +116,44 @@
     background-color:#7AA321;
 }
 
+/* .mapped-out-cards {
+    height: 100px;
+    width: 100px;
+    background-color:white;
+    position: absolute;
+    bottom:10%;
+    z-index: 100;
+} */
+
+.notes-container {
+    /* background-color: white; */
+    height:150px;
+    width: 100%;
+    /* position: absolute; */
+    /* top:50%; */
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.notes-containers {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mapped-out-cards {
+    height: 100px;
+    width: 150px;
+    background-color: white;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+

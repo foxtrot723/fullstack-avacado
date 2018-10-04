@@ -1,10 +1,19 @@
 import axios from 'axios'
 
+const authAxios = axios.create()
+
+authAxios.interceptors.request.use(config => {
+    const token = localStorage.getItem("token")
+    config.headers.Authorization = `Bearer ${token}`
+    return config
+})
+
 
 // This is the initial state where everything being imported will be kept and accesible through props
 let initialState = {
 // This is where the notes will be stored and will be able to map through them
     notes: [],
+// this is where we will be storing the current card object of what is going to the Notes page
 // This is where the information will be kept for the current user after they sign up/ log in
     user: {
         username: '',
@@ -30,7 +39,8 @@ export function authenticate(user) {
 // This is so while the user navigates around the site, they remain logged in, it is placed in the app component
 export function verify() {
     return dispatch => {
-    axios.get('/api/profile')
+// auth axios allows the token to be passed through
+    authAxios.get('/api/profile')
     .then(res => {
         const { user } = res.data
 // this is where we allow authentification after the user has been verified
@@ -76,6 +86,7 @@ export function signUp(inputs) {
 
 // When a user clicks the log in button this is the function that will be performed
 const logon = (success, user) => {
+    console.log(user)
     return {
         type: "LOGON",
 // This is passing the user object into initialState

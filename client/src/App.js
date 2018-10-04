@@ -32,13 +32,15 @@ componentDidMount(){  // Verify the user everytime the user refreshes/causes the
             path = '/notes'
             redirectTo = '/'
             isAuthenticated = { isAuthenticated }
-            render = {() => {
+            render = {() => 
               <NotesPage
                 {...this.props}
                 addNote = { this.props.addNote }
                 notes = { this.props.notes }
                 deleteNote = { this.props.deleteNote } />
-            }} />
+            } />
+
+            {/* <Route path = '/notes' component = { NotesPage } /> */}
 
           <Route path = '/contact' component = { Contact } />
 
