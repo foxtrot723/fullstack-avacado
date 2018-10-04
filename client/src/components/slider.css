@@ -1,0 +1,198 @@
+.body {
+   font-family: 'Roboto', sans-serif;
+}
+
+.slider {
+   background-color: white;
+   position: absolute;
+   top: 0;
+   left: 0;
+   margin-left: 0;
+   margin-right: 0;
+   width: 99vw;
+   height: 81vh;
+   margin-top: 12vh;
+   overflow: hidden;
+   display: none;
+}
+
+.slider-inner {
+   position: absolute;
+   left: 0;
+   top: 0;
+   height: 100vh;
+   transition-timing-function: cubic-bezier(0, 0, 0, 0);
+   transition-duration: 1s;
+   backface-visibility: hidden;
+   transition-delay: .75s;
+   -webkit-transform: translateZ(0);
+           transform: translateZ(0);
+}
+
+.slide {
+   position: absolute;
+   top: 0;
+   height: 180vh;
+   background-image: url('https://www.desktopbackground.org/p/2015/04/07/929431_atlanta-productivity-hacks-for-innovators-on-the-go-evernote_1920x1200_h.jpg');
+   background-size: cover;
+   backface-visibility: hidden;
+   transition-timing-function: cubic-bezier(0, 0, 0, 0);
+   -webkit-transform: translateZ(0) scale(1,1);
+           transform: translateZ(0) scale(1, 1);
+   transition-duration: .5s;
+   text-align: center;
+   font-size: 5rem;
+   color: white;
+}
+.slide.active {
+   -webkit-transform: scale(1, 1);
+           transform: scale(1, 1);
+   transition-delay: 2s;
+}
+.slide:nth-child(2n) {
+   background-image: url('https://cdn.dribbble.com/users/401390/screenshots/2080005/workspace-pattern.png');
+   background-size: cover;
+}
+.slide:nth-child(3n) {
+   background-image: url('https://www.desktopbackground.org/p/2015/04/07/929444_dolphin-browser-ipad-english-evernote-app-center_1440x853_h.png');
+   background-size: cover;
+}
+.slide:nth-child(4n) {
+   background-image: url('https://cdn.dribbble.com/users/401390/screenshots/2080005/workspace-pattern.png');
+   background-size: cover;
+}
+.slider-nav {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    padding: 20px;
+    text-align: center;
+ }
+ .slider-nav > div {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border: 1px solid white;
+    z-index: 2;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    opacity: .5;
+    transition-duration: .25s;
+    background-color: transparent;
+ }
+ .slider-nav > div:hover {
+    opacity: 1;
+ }
+ .slider-nav > div.active {
+    background-color: white;
+    -webkit-transform: scale(2);
+            transform: scale(2);
+    opacity: 1;
+ }
+ 
+ .load {
+    height: 50vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    zoom: 1.5;
+ }
+ .workLink {
+    text-decoration: none;
+    color: cyan;
+ }
+ 
+ .roller {
+    display: inlineblock;
+    width: 64px;
+    height: 64px;
+  }
+
+  .roller div {
+    animation: roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 32px 32px;
+  }
+  .roller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: white;
+    margin: -3px 0 0 -3px;
+  }
+  .roller div:nth-child(1) {
+    animation-delay: -0.036s;
+  }
+  .roller div:nth-child(1):after {
+    top: 50px;
+    left: 50px;
+  }
+  .roller div:nth-child(2) {
+    animation-delay: -0.072s;
+  }
+  .roller div:nth-child(2):after {
+    top: 54px;
+    left: 45px;
+  }
+  .roller div:nth-child(3) {
+    animation-delay: -0.108s;
+  }
+  .roller div:nth-child(3):after {
+    top: 57px;
+    left: 39px;
+  }
+  .roller div:nth-child(4) {
+    animation-delay: -0.144s;
+  }
+  .roller div:nth-child(4):after {
+    top: 58px;
+    left: 32px;
+  }
+  .roller div:nth-child(5) {
+    animation-delay: -0.18s;
+  }
+  .roller div:nth-child(5):after {
+    top: 57px;
+    left: 25px;
+  }
+  .roller div:nth-child(6) {
+    animation-delay: -0.216s;
+  }
+  .roller div:nth-child(6):after {
+    top: 54px;
+    left: 19px;
+  }
+  .roller div:nth-child(7) {
+    animation-delay: -0.252s;
+  }
+  .roller div:nth-child(7):after {
+    top: 50px;
+    left: 14px;
+  }
+  .roller div:nth-child(8) {
+    animation-delay: -0.288s;
+  }
+  .roller div:nth-child(8):after {
+    top: 45px;
+    left: 10px;
+  }
+  @keyframes roller {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+ 
+ @media (max-width: 960px) {
+  .body {
+    display:99vw;
+  }
+ }

@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class CurrentNote extends Component {
     render() {
         return (
-            <div></div>
+            <div>{}</div>
         )
     }
 }

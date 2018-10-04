@@ -2,7 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './navbar.css'
 
-const Navbar = () => {
+const Navbar = props => {
+    const { logout } = props
    return (
        <div className='navbar'>
            <div className='topBlock'>
@@ -15,6 +16,7 @@ const Navbar = () => {
                <Link className='navLinks' to = '/'>Home</Link>
                <Link className='navLinks' to = '/notes'>Notes</Link>
                <Link className='navLinks' to = '/contact'>Contact</Link>
+               <Link className = 'navLinks' to = '/login'>Log In</Link>
            </nav>
        </div>
    )

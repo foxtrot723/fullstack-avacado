@@ -10,15 +10,6 @@ class NoteForm extends Component {
         }
     }
 
-    // createNote = () => {
-    //     axios.post('/notes')
-    //     .then(response => {
-    //         this.setState(prevState => ({
-    //             allNotes: [...prevState.allNotes, response]
-    //         }))
-    //     })
-    // }
-
     handleSubmit = event => {
         event.preventDefault()
         let newNote = {
@@ -34,14 +25,35 @@ class NoteForm extends Component {
         })
     }
 
+    handleTitleChange = event => {
+        event.preventDefault()
+        this.setState({
+            title: event.target.value
+        })
+    }
+
+    handleTagChange = event => {
+        event.preventDefault()
+        this.setState({
+            tag: event.target.value
+        })
+    }
+
+    handleBodyChange = event => {
+        event.preventDefault()
+        this.setState({
+            body: event.target.value
+        })
+    }
+
     render() {
+        
         return (
-            <form onSubmit = { this.handleSubmit }>
-                <input type = "text" placeholder = "title" />
-                <input type = "text" placeholder = "tag" />
-                <input type = "text" placeholder = "body" />
-                <input type = "button" value = "submit" onClick = { this.handleSubmit } />
-                <input type = "button" value = "exit" onClick = { this.props.toggleNoteForm } />
+            <form className = "new-note-form" onSubmit = { this.handleSubmit }>
+                <input className = "input-form-containers input-title-new-card" type = "text" placeholder = "title" onChange = { this.handleTitleChange} />
+                <input className = "input-form-containers input-tag-new-card" type = "text" placeholder = "tag" onChange = { this.handleTagChange} />
+                <input className = "input-form-containers input-body-new-card" type = "text" placeholder = "body" onChange = { this.handleBodyChange} />
+                <input className = "submit-new-card-button" type = "button" value = "submit" onClick = { this.handleSubmit } />
             </form>
         )
     }

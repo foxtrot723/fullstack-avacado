@@ -5,10 +5,6 @@ const noteSchema = new Schema({
     title: String,
     tag: String,
     body: String,
-    imgUrl: {
-        type: String,
-        required: false
-    },
     date: {
         type: Date,
         default: Date.now
